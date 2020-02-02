@@ -11,4 +11,5 @@ struct K {
     static let username = "iloveios"
     static let password = "hiremenow"
     static let userDetailsSegue = "goToUserDetails"
+    static let userDetailsURL = "https://api.github.com/users"
 }

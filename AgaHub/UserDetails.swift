@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct UserDetails {
-    let avatar: UIImage
-    let userLogin: String
-    let userRepoLink: String
+    let login: String
+    let avatar_url: String
+    let repos_url: String
 }

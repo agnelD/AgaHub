@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginPageViewController: UIViewController, UITextFieldDelegate {
+    
+    let dataManager = DataManager()
 
     @IBOutlet weak var usernameTextfield: UITextField!
     
@@ -33,6 +35,9 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
 //   go to details screen
             
             performSegue(withIdentifier: K.userDetailsSegue, sender: self)
+            
+            dataManager.performRequest(urlString: K.userDetailsURL)
+            
             
         } else {
             usernameTextfield.text = ""

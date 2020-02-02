@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		C04D6BCC23E6DD4300691A17 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BCB23E6DD4300691A17 /* LoginPageViewController.swift */; };
 		C04D6BCF23E7063700691A17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BCE23E7063700691A17 /* Constants.swift */; };
 		C04D6BD123E70F6D00691A17 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BD023E70F6D00691A17 /* UserDetails.swift */; };
+		C04D6BD323E7222400691A17 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BD223E7222400691A17 /* DataManager.swift */; };
 		CEE5DE60E091597753221A41 /* Pods_AgaHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8226B647FE07239C412FEE71 /* Pods_AgaHub.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		C04D6BCB23E6DD4300691A17 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C04D6BCE23E7063700691A17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C04D6BD023E70F6D00691A17 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		C04D6BD223E7222400691A17 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		E3F65571CFC0BB5ACABBFE17 /* Pods-AgaHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgaHub.release.xcconfig"; path = "Target Support Files/Pods-AgaHub/Pods-AgaHub.release.xcconfig"; sourceTree = "<group>"; };
 		EE4419AB8FC1F246367433AB /* Pods-AgaHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgaHub.debug.xcconfig"; path = "Target Support Files/Pods-AgaHub/Pods-AgaHub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +56,6 @@
 				EE4419AB8FC1F246367433AB /* Pods-AgaHub.debug.xcconfig */,
 				E3F65571CFC0BB5ACABBFE17 /* Pods-AgaHub.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -89,6 +90,7 @@
 			children = (
 				C04D6BB423E6DA3A00691A17 /* AppDelegate.swift */,
 				C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */,
+				C04D6BD423E7222B00691A17 /* Model */,
 				C04D6BC823E6DB5D00691A17 /* Controllers */,
 				C04D6BCD23E7050E00691A17 /* Views */,
 				C04D6BBD23E6DA4E00691A17 /* Assets.xcassets */,
@@ -115,6 +117,14 @@
 				C04D6BBA23E6DA3A00691A17 /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C04D6BD423E7222B00691A17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C04D6BD223E7222400691A17 /* DataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +245,7 @@
 				C04D6BCF23E7063700691A17 /* Constants.swift in Sources */,
 				C04D6BB523E6DA3A00691A17 /* AppDelegate.swift in Sources */,
 				C04D6BCA23E6DB9F00691A17 /* UserDetailsViewController.swift in Sources */,
+				C04D6BD323E7222400691A17 /* DataManager.swift in Sources */,
 				C04D6BCC23E6DD4300691A17 /* LoginPageViewController.swift in Sources */,
 				C04D6BB723E6DA3A00691A17 /* SceneDelegate.swift in Sources */,
 				C04D6BD123E70F6D00691A17 /* UserDetails.swift in Sources */,
