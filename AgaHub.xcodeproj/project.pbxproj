@@ -14,6 +14,7 @@
 		C04D6BC123E6DA4E00691A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04D6BBF23E6DA4E00691A17 /* LaunchScreen.storyboard */; };
 		C04D6BCA23E6DB9F00691A17 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BC923E6DB9F00691A17 /* UserDetailsViewController.swift */; };
 		C04D6BCC23E6DD4300691A17 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BCB23E6DD4300691A17 /* LoginPageViewController.swift */; };
+		C04D6BCF23E7063700691A17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BCE23E7063700691A17 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C04D6BC223E6DA4E00691A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04D6BC923E6DB9F00691A17 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		C04D6BCB23E6DD4300691A17 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		C04D6BCE23E7063700691A17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +63,10 @@
 				C04D6BB423E6DA3A00691A17 /* AppDelegate.swift */,
 				C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */,
 				C04D6BC823E6DB5D00691A17 /* Controllers */,
-				C04D6BBA23E6DA3A00691A17 /* Main.storyboard */,
+				C04D6BCD23E7050E00691A17 /* Views */,
 				C04D6BBD23E6DA4E00691A17 /* Assets.xcassets */,
 				C04D6BBF23E6DA4E00691A17 /* LaunchScreen.storyboard */,
+				C04D6BCE23E7063700691A17 /* Constants.swift */,
 				C04D6BC223E6DA4E00691A17 /* Info.plist */,
 			);
 			path = AgaHub;
@@ -76,6 +79,14 @@
 				C04D6BC923E6DB9F00691A17 /* UserDetailsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C04D6BCD23E7050E00691A17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C04D6BBA23E6DA3A00691A17 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04D6BCF23E7063700691A17 /* Constants.swift in Sources */,
 				C04D6BB523E6DA3A00691A17 /* AppDelegate.swift in Sources */,
 				C04D6BCA23E6DB9F00691A17 /* UserDetailsViewController.swift in Sources */,
 				C04D6BCC23E6DD4300691A17 /* LoginPageViewController.swift in Sources */,

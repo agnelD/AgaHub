@@ -9,9 +9,6 @@
 import UIKit
 
 class LoginPageViewController: UIViewController, UITextFieldDelegate {
-    
-    let username = "iloveios"
-    let password = "hiremenow"
 
     @IBOutlet weak var usernameTextfield: UITextField!
     
@@ -31,11 +28,11 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         
-        if usernameTextfield.text == username && passwordTextfield.text == password {
+        if usernameTextfield.text == K.username && passwordTextfield.text == K.password {
             
 //   go to details screen
             
-            performSegue(withIdentifier: "goToUserDetails", sender: self)
+            performSegue(withIdentifier: K.userDetailsSegue, sender: self)
             
         } else {
             usernameTextfield.text = ""
