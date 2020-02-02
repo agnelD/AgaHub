@@ -8,12 +8,12 @@
 
 import UIKit
 
-class UserDetailsViewController: UITableViewController{
+class UserDetailsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
 
