@@ -7,7 +7,7 @@
 //
 import Foundation
 
-struct K {
+struct Constants {
     static let username = "iloveios"
     static let password = "hiremenow"
     static let userDetailsSegue = "goToUserDetails"

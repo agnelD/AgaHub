@@ -6,11 +6,10 @@
 //  Copyright © 2020 Agnieszka Duch. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct UserDetails {
-    let login: String
-    let avatar_url: String
-    let repos_url: String
+    let login: String?
+    let avatar_url: String?
+    let repos_url: String?
 }

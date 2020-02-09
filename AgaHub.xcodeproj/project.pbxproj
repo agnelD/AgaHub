@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C04D6BB523E6DA3A00691A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BB423E6DA3A00691A17 /* AppDelegate.swift */; };
-		C04D6BB723E6DA3A00691A17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */; };
+		C04C0C5D23EEF1AF00A81B5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */; };
 		C04D6BBC23E6DA3A00691A17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04D6BBA23E6DA3A00691A17 /* Main.storyboard */; };
 		C04D6BBE23E6DA4E00691A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04D6BBD23E6DA4E00691A17 /* Assets.xcassets */; };
 		C04D6BC123E6DA4E00691A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04D6BBF23E6DA4E00691A17 /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		8226B647FE07239C412FEE71 /* Pods_AgaHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgaHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04D6BB123E6DA3A00691A17 /* AgaHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgaHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C04D6BB423E6DA3A00691A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C04D6BBB23E6DA3A00691A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C04D6BBD23E6DA4E00691A17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +65,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C04C0C5B23ECC8F100A81B5C /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C04D6BBD23E6DA4E00691A17 /* Assets.xcassets */,
+				C04D6BBF23E6DA4E00691A17 /* LaunchScreen.storyboard */,
+				C04D6BCE23E7063700691A17 /* Constants.swift */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		C04C0C5C23ECC90F00A81B5C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		C04D6BA823E6DA3900691A17 = {
 			isa = PBXGroup;
 			children = (
@@ -88,15 +104,11 @@
 		C04D6BB323E6DA3A00691A17 /* AgaHub */ = {
 			isa = PBXGroup;
 			children = (
-				C04D6BB423E6DA3A00691A17 /* AppDelegate.swift */,
-				C04D6BB623E6DA3A00691A17 /* SceneDelegate.swift */,
+				C04C0C5C23ECC90F00A81B5C /* Delegates */,
 				C04D6BD423E7222B00691A17 /* Model */,
 				C04D6BC823E6DB5D00691A17 /* Controllers */,
 				C04D6BCD23E7050E00691A17 /* Views */,
-				C04D6BBD23E6DA4E00691A17 /* Assets.xcassets */,
-				C04D6BBF23E6DA4E00691A17 /* LaunchScreen.storyboard */,
-				C04D6BCE23E7063700691A17 /* Constants.swift */,
-				C04D6BD023E70F6D00691A17 /* UserDetails.swift */,
+				C04C0C5B23ECC8F100A81B5C /* Supporting files */,
 				C04D6BC223E6DA4E00691A17 /* Info.plist */,
 			);
 			path = AgaHub;
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				C04D6BD223E7222400691A17 /* DataManager.swift */,
+				C04D6BD023E70F6D00691A17 /* UserDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,11 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04D6BCF23E7063700691A17 /* Constants.swift in Sources */,
-				C04D6BB523E6DA3A00691A17 /* AppDelegate.swift in Sources */,
+				C04C0C5D23EEF1AF00A81B5C /* SceneDelegate.swift in Sources */,
 				C04D6BCA23E6DB9F00691A17 /* UserDetailsViewController.swift in Sources */,
 				C04D6BD323E7222400691A17 /* DataManager.swift in Sources */,
 				C04D6BCC23E6DD4300691A17 /* LoginPageViewController.swift in Sources */,
-				C04D6BB723E6DA3A00691A17 /* SceneDelegate.swift in Sources */,
 				C04D6BD123E70F6D00691A17 /* UserDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

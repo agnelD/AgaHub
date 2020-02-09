@@ -30,13 +30,13 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         
-        if usernameTextfield.text == K.username && passwordTextfield.text == K.password {
+        if usernameTextfield.text == Constants.username && passwordTextfield.text == Constants.password {
             
 //   go to details screen
             
-            performSegue(withIdentifier: K.userDetailsSegue, sender: self)
+            performSegue(withIdentifier: Constants.userDetailsSegue, sender: self)
             
-            dataManager.performRequest(urlString: K.userDetailsURL)
+            dataManager.performRequest(urlString: Constants.userDetailsURL)
             
             
         } else {

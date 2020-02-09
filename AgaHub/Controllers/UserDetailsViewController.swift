@@ -9,6 +9,8 @@
 import UIKit
 
 class UserDetailsViewController: UITableViewController {
+    
+    let dataManager = DataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
