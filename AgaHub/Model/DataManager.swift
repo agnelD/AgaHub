@@ -16,7 +16,7 @@ class DataManager {
     
     func performRequest(url: String, completion: @escaping (JSON?, Error?) -> Void) {
         
-        AF.request(url, method: .get).responseJSON { response in
+        Alamofire.request(url, method: .get).responseJSON { response in
             switch response.result {
             case .success(let value):
                 completion(JSON(value), nil)

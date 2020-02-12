@@ -10,14 +10,14 @@ import UIKit
 
 class LoginPageViewController: UIViewController, UITextFieldDelegate {
     
-    let defaults = UserDefaults.standard
-    let dataManager = DataManager()
+    private let defaults = UserDefaults.standard
+    private let dataManager = DataManager()
     
-    var userCredentials = [String]()
+    private var userCredentials = [String]()
 
-    @IBOutlet weak var usernameTextfield: UITextField!
+    @IBOutlet private weak var usernameTextfield: UITextField!
     
-    @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet private weak var passwordTextfield: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
                 userCredentials.append(safePassword)
             }
             
-            UserDefaults.setValue(self.userCredentials, forKey: "credentials")
+            defaults.set(self.userCredentials, forKey: "credentials")
             
         } else {
             usernameTextfield.text = ""
@@ -76,7 +76,7 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
             present(alert, animated: true, completion: nil)
         }
     }
-//MARK: - Textfield delegate methods
+    //MARK: - Textfield delegate methods
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
@@ -92,4 +92,3 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         passwordTextfield.resignFirstResponder()
     }
 }
-
