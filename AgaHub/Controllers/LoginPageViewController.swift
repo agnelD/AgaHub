@@ -10,7 +10,10 @@ import UIKit
 
 class LoginPageViewController: UIViewController, UITextFieldDelegate {
     
+    let defaults = UserDefaults.standard
     let dataManager = DataManager()
+    
+    var userCredentials = [String]()
 
     @IBOutlet weak var usernameTextfield: UITextField!
     
@@ -19,31 +22,58 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let items = defaults.array(forKey: "credentials") as? [String] {
+            userCredentials = items
+        }
+        
         usernameTextfield.delegate = self
         passwordTextfield.delegate = self
-        
-//        is there a better way for dismissing a keyboard?
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
+    
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        if !userCredentials.isEmpty {
+            performSegue(withIdentifier: Constants.userDetailsSegue, sender: self)
 
+//            show((UserDetailsViewController.self as! UIViewController), sender: self)
+        } else {
+            return
+        }
     }
 
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         
         if usernameTextfield.text == Constants.username && passwordTextfield.text == Constants.password {
             
-//   go to details screen
-            
+//            so that second VC is loaded straight away w/o showing empty cells
+//            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//                if segue.identifier == Constants.userDetailsSegue {
+//
+//                }
+//            }
             performSegue(withIdentifier: Constants.userDetailsSegue, sender: self)
             
-            dataManager.performRequest(urlString: Constants.userDetailsURL)
+            if let safeUsername = usernameTextfield.text, let safePassword = passwordTextfield.text {
+                userCredentials.append(safeUsername)
+                userCredentials.append(safePassword)
+            }
             
+            UserDefaults.setValue(self.userCredentials, forKey: "credentials")
             
         } else {
             usernameTextfield.text = ""
             passwordTextfield.text = ""
-            usernameTextfield.placeholder = "Invalid username or password"
-            passwordTextfield.placeholder = "Invalid username or password"
+            
+            let alert = UIAlertController(title: "Invalid username or password", message: "Please try again", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
         }
     }
 //MARK: - Textfield delegate methods

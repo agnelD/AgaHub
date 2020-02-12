@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 struct UserDetails {
     let login: String?
     let avatar_url: String?
-    let repos_url: String?
+    let html_url: String?
+    
+    init(json: JSON) {
+        login = json["login"].string
+        avatar_url = json["avatar_url"].string
+        html_url = json["html_url"].string
+    }
 }
