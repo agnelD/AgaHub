@@ -62,6 +62,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="7bV-8W-hMC">
+                            <rect key="frame" x="0.0" y="146.5" width="414" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userDetailsCell" id="E29-Pt-0nF" customClass="UserTableViewCell" customModule="AgaHub" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="90.5"/>
@@ -99,17 +104,16 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcA-Ao-RWG">
-                                            <rect key="frame" x="362" y="34" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcA-Ao-RWG">
+                                            <rect key="frame" x="362" y="35.5" width="22" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="4bA-nX-Qm5"/>
                                                 <constraint firstAttribute="height" constant="20" id="XTE-BF-rli"/>
                                                 <constraint firstAttribute="width" constant="22" id="xFP-ku-sgE"/>
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="star" catalog="system"/>
                                             <connections>
-                                                <action selector="favouriteButton:" destination="1f2-ap-C63" eventType="touchUpInside" id="x8L-Eo-IiU"/>
+                                                <action selector="favouriteButton:" destination="E29-Pt-0nF" eventType="touchUpInside" id="4cy-2b-JcD"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -122,12 +126,14 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="NTd-2w-KYx" secondAttribute="bottom" constant="2" id="UHm-z6-ZGK"/>
                                         <constraint firstItem="NTd-2w-KYx" firstAttribute="leading" secondItem="haf-2j-FlE" secondAttribute="leadingMargin" constant="2" id="bB5-nf-Hs9"/>
                                         <constraint firstItem="NTd-2w-KYx" firstAttribute="top" secondItem="haf-2j-FlE" secondAttribute="top" constant="20" symbolic="YES" id="jvJ-I4-2aG"/>
+                                        <constraint firstItem="lcA-Ao-RWG" firstAttribute="centerY" secondItem="haf-2j-FlE" secondAttribute="centerY" id="tZO-x2-TCL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="accountLabel" destination="FXN-Z4-5th" id="0vD-Ay-Cte"/>
                                     <outlet property="avatarImage" destination="pwi-u2-p2h" id="s6y-s2-EJm"/>
                                     <outlet property="loginLabel" destination="db9-Ci-EMr" id="O2x-fS-wzw"/>
+                                    <outlet property="starButton" destination="lcA-Ao-RWG" id="Zxk-eR-Mgq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -146,7 +152,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYY-Ya-m4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726.0869565217392" y="126.5625"/>
+            <point key="canvasLocation" x="1870" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BjY-sk-kBR">

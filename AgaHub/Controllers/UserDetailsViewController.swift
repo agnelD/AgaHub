@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class UserDetailsViewController: UITableViewController {
+import SVProgressHUD
+class UserDetailsViewController: UITableViewController, UserTableViewCellDelegate {
     
     let defaults = UserDefaults.standard
     var favouriteUsers = [String]()
@@ -21,33 +21,29 @@ class UserDetailsViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationItem.hidesBackButton = true
         fetchUsers()
+        favouriteUsers = defaults.stringArray(forKey: "favouritedUsers") ?? []
     }
     
     @IBAction func logoutButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        defaults.removeObject(forKey: "credentials")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - Private
     private func fetchUsers() {
-        
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        SVProgressHUD.setContainerView(view)
+        SVProgressHUD.show(withStatus: "sciagma to teraz. niE PRZESZKADZAJ")
         dataManager.performRequest(url: Constants.userDetailsURL) { response, error in
-            
+
             if let array = response?.array {
                 for json in array {
                     self.users.append(UserDetails(json: json))
                 }
             }
             self.tableView.reloadData()
+            SVProgressHUD.dismiss()
         }
-    }
-    @IBAction func favouriteButton(_ sender: UIButton) {
-        
-        //not working?
-//        favouriteUsers.append(users[sender.].login)
-//        UserDefaults.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
-        sender.imageView?.image = UIImage.init(named: Constants.favouriteImage)?
-            .withTintColor(.white)
-        
     }
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,7 +51,9 @@ class UserDetailsViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userDetailsCell", for: indexPath) as! UserTableViewCell
-        cell.updateUI(with: self.users[indexPath.row])
+        cell.updateUI(with: self.users[indexPath.row], favouritedUsers: favouriteUsers)
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
     // MARK: - UITableViewDelegate
@@ -64,5 +62,19 @@ class UserDetailsViewController: UITableViewController {
         if let safeUrl = users[indexPath.row].html_url {
             UIApplication.shared.open(URL(string: safeUrl)!, options: [:], completionHandler: nil)
         }
+    }
+    // MARK: - UserTableViewCellDelegate
+    func userTableViewCellFavouriteButtonTapped(for indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        print("+++++++ \(favouriteUsers) +++++")
+        if favouriteUsers.contains(user.login ?? "") {
+            if let index = favouriteUsers.firstIndex(of: user.login ?? "") {
+                favouriteUsers.remove(at: index)
+            }
+        } else {
+            favouriteUsers.append(user.login ?? "")
+        }
+        defaults.set(favouriteUsers, forKey: "favouritedUsers")
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

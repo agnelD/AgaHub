@@ -13,4 +13,5 @@ struct Constants {
     static let userDetailsSegue = "goToUserDetails"
     static let userDetailsURL = "https://api.github.com/users"
     static let favouriteImage = "star.fill"
+    static let non_favouriteImage = "star"
 }

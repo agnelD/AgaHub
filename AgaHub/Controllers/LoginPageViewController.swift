@@ -28,6 +28,8 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         
         usernameTextfield.delegate = self
         passwordTextfield.delegate = self
+//        usernameTextfield.text = "iloveios"
+//        passwordTextfield.text = "hiremenow"
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)

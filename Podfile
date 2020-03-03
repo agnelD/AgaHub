@@ -5,5 +5,7 @@ target 'AgaHub' do
 
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
 
 end
