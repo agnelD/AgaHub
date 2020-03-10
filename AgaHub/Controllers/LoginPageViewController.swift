@@ -12,11 +12,9 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     
     private let defaults = UserDefaults.standard
     private let dataManager = DataManager()
-    
     private var userCredentials = [String]()
-
-    @IBOutlet private weak var usernameTextfield: UITextField!
     
+    @IBOutlet private weak var usernameTextfield: UITextField!
     @IBOutlet private weak var passwordTextfield: UITextField!
     
     override func viewDidLoad() {
@@ -28,33 +26,25 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         
         usernameTextfield.delegate = self
         passwordTextfield.delegate = self
-//        usernameTextfield.text = "iloveios"
-//        passwordTextfield.text = "hiremenow"
-
+        //        usernameTextfield.text = "iloveios"
+        //        passwordTextfield.text = "hiremenow"
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
-    
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        navigationController?.navigationBar.barTintColor = .white
         
         if !userCredentials.isEmpty {
             performSegue(withIdentifier: Constants.userDetailsSegue, sender: self)
-
-//            show((UserDetailsViewController.self as! UIViewController), sender: self)
         } else {
             return
         }
     }
-
+    
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         
         if usernameTextfield.text == Constants.username && passwordTextfield.text == Constants.password {
             
-//            so that second VC is loaded straight away w/o showing empty cells
-//            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//                if segue.identifier == Constants.userDetailsSegue {
-//
-//                }
-//            }
             performSegue(withIdentifier: Constants.userDetailsSegue, sender: self)
             
             if let safeUsername = usernameTextfield.text, let safePassword = passwordTextfield.text {
@@ -63,6 +53,9 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
             }
             
             defaults.set(self.userCredentials, forKey: "credentials")
+            
+            usernameTextfield.text = ""
+            passwordTextfield.text = ""
             
         } else {
             usernameTextfield.text = ""

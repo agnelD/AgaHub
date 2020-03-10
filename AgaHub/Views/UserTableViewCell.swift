@@ -7,11 +7,13 @@
 //
 import UIKit
 import SDWebImage
+
 protocol UserTableViewCellDelegate: class {
     func userTableViewCellFavouriteButtonTapped(for indexPath: IndexPath)
 }
+
 class UserTableViewCell: UITableViewCell {
-    @IBOutlet var loginLabel: UILabel!
+    @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var starButton: UIButton!

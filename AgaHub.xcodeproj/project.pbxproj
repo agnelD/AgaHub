@@ -111,8 +111,8 @@
 			children = (
 				C04C0C5C23ECC90F00A81B5C /* Delegates */,
 				C04D6BD423E7222B00691A17 /* Model */,
-				C04D6BC823E6DB5D00691A17 /* Controllers */,
 				C04D6BCD23E7050E00691A17 /* Views */,
+				C04D6BC823E6DB5D00691A17 /* Controllers */,
 				C04C0C5B23ECC8F100A81B5C /* Supporting files */,
 				C04D6BC223E6DA4E00691A17 /* Info.plist */,
 			);

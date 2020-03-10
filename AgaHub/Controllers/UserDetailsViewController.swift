@@ -12,13 +12,14 @@ class UserDetailsViewController: UITableViewController, UserTableViewCellDelegat
     
     let defaults = UserDefaults.standard
     var favouriteUsers = [String]()
-
+    
     private let dataManager = DataManager()
     private var users = [UserDetails]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        navigationController?.navigationBar.barTintColor = .white
         navigationItem.hidesBackButton = true
         fetchUsers()
         favouriteUsers = defaults.stringArray(forKey: "favouritedUsers") ?? []
@@ -30,12 +31,13 @@ class UserDetailsViewController: UITableViewController, UserTableViewCellDelegat
     }
     
     // MARK: - Private
+    
     private func fetchUsers() {
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.setContainerView(view)
-        SVProgressHUD.show(withStatus: "sciagma to teraz. niE PRZESZKADZAJ")
+        SVProgressHUD.show(withStatus: "Loading data")
         dataManager.performRequest(url: Constants.userDetailsURL) { response, error in
-
+            
             if let array = response?.array {
                 for json in array {
                     self.users.append(UserDetails(json: json))
@@ -46,6 +48,7 @@ class UserDetailsViewController: UITableViewController, UserTableViewCellDelegat
         }
     }
     // MARK: - UITableViewDataSource
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -57,16 +60,16 @@ class UserDetailsViewController: UITableViewController, UserTableViewCellDelegat
         return cell
     }
     // MARK: - UITableViewDelegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let safeUrl = users[indexPath.row].html_url {
             UIApplication.shared.open(URL(string: safeUrl)!, options: [:], completionHandler: nil)
         }
     }
     // MARK: - UserTableViewCellDelegate
+    
     func userTableViewCellFavouriteButtonTapped(for indexPath: IndexPath) {
         let user = users[indexPath.row]
-        print("+++++++ \(favouriteUsers) +++++")
         if favouriteUsers.contains(user.login ?? "") {
             if let index = favouriteUsers.firstIndex(of: user.login ?? "") {
                 favouriteUsers.remove(at: index)
